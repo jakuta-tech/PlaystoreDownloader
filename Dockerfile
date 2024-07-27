@@ -1,10 +1,10 @@
-FROM python:3.10.0-slim-bullseye
+FROM python:3.10.1-slim-bullseye
 
 WORKDIR /app/
 
 # Copy requirements and install.
 COPY ./Pipfile* /app/
-RUN python -m pip install --no-cache-dir --upgrade pip pipenv && \
+RUN python3 -m pip install --no-cache-dir --upgrade pip pipenv && \
     pipenv install --deploy --system
 
 # Copy the needed files.
